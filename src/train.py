@@ -1,6 +1,5 @@
 import os
 import argparse
-from dotenv import load_dotenv
 
 import pandas as pd
 
@@ -22,8 +21,8 @@ cml_run = args.cml_run
 
 
 # Set google application credentials
-SA_KEY = os.getenv('SA_KEY')
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = SA_KEY
+GOOGLE_APPLICATION_CREDENTIALS = "./credentials.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = GOOGLE_APPLICATION_CREDENTIALS
 
 # Set MLFlow tracking URI and connection to MLFlow
 MLFLOW_TRACKING_URI = os.getenv('MLFLOW_TRACKING_URI')
@@ -37,15 +36,15 @@ color = 'green'
 year = '2022'
 month = '1'
 features = ['PULocationID', 'DOLocationID', 'trip_distance', 'fare_amount', 'total_amount', 'passenger_count']
-target = 'duration'
+target = 'trip_duration_minutes'
 model_name = f'{color}-taxi-project-model'
 
-# Download the data
-if not os.path.exists(f"./data/{color}_tripdata_{year}-{month:02d}.parquet"):
-    os.system(f"wget -P ./data https://d37ci6vzurychx.cloudfront.net/trip-data/{color}_tripdata_{year}-{month:02d}.parquet")
+## Download the data (not needed any more)
+#if not os.path.exists(f"./data/{color}_tripdata_{year}-{month:02d}.parquet"):
+#    os.system(f"wget -P ./data https://d37ci6vzurychx.cloudfront.net/trip-data/{color}_tripdata_{year}-{month:02d}.parquet")
 
 # Load the data
-df = pd.read_parquet(f"./data/{color}_tripdata_{year}-{month:02d}.parquet")
+df = pd.read_parquet(f"data/green_tripdata_2022-01.parquet")
 
 
 # calculate the trip duration in minutes and drop trips that are less than 1 minute and more than 1 hour
