@@ -36,7 +36,7 @@ color = 'green'
 year = '2022'
 month = '1'
 features = ['PULocationID', 'DOLocationID', 'trip_distance', 'fare_amount', 'total_amount', 'passenger_count']
-target = 'duration'
+target = 'trip_duration_minutes'
 model_name = f'{color}-taxi-project-model'
 
 ## Download the data (not needed any more)
