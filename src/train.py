@@ -39,9 +39,9 @@ features = ['PULocationID', 'DOLocationID', 'trip_distance', 'fare_amount', 'tot
 target = 'duration'
 model_name = f'{color}-taxi-project-model'
 
-# Download the data
-if not os.path.exists(f"./data/{color}_tripdata_{year}-{month:02d}.parquet"):
-    os.system(f"wget -P ./data https://d37ci6vzurychx.cloudfront.net/trip-data/{color}_tripdata_{year}-{month:02d}.parquet")
+## Download the data (not needed any more)
+#if not os.path.exists(f"./data/{color}_tripdata_{year}-{month:02d}.parquet"):
+#    os.system(f"wget -P ./data https://d37ci6vzurychx.cloudfront.net/trip-data/{color}_tripdata_{year}-{month:02d}.parquet")
 
 # Load the data
 df = pd.read_parquet(f"./data/{color}_tripdata_{year}-{month:02d}.parquet")
