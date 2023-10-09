@@ -21,8 +21,8 @@ cml_run = args.cml_run
 
 
 # Set google application credentials
-SA_KEY = os.getenv('SA_KEY')
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = SA_KEY
+GOOGLE_APPLICATION_CREDENTIALS = "./credentials.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = GOOGLE_APPLICATION_CREDENTIALS
 
 # Set MLFlow tracking URI and connection to MLFlow
 MLFLOW_TRACKING_URI = os.getenv('MLFLOW_TRACKING_URI')
