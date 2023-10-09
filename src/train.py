@@ -44,7 +44,7 @@ model_name = f'{color}-taxi-project-model'
 #    os.system(f"wget -P ./data https://d37ci6vzurychx.cloudfront.net/trip-data/{color}_tripdata_{year}-{month:02d}.parquet")
 
 # Load the data
-df = pd.read_parquet(f"./data/{color}_tripdata_{year}-{month:02d}.parquet")
+df = pd.read_parquet(f"./data/green_tripdata_22-01.parquet")
 
 
 # calculate the trip duration in minutes and drop trips that are less than 1 minute and more than 1 hour
